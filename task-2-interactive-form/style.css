@@ -1,0 +1,313 @@
+:root {
+  --bg-main: #0B0F19;
+  --bg-card: #111827;
+  --text-main: #F9FAFB;
+  --text-muted: #9CA3AF;
+  --text-sub: #6B7280;
+  --primary: #10B981;
+  --primary-hover: #059669;
+  --primary-glow: rgba(16, 185, 129, 0.25);
+  --danger: #EF4444;
+  --danger-glow: rgba(239, 68, 68, 0.15);
+  --warning: #F59E0B;
+  --border: #1F2937;
+  --border-focus: #3B82F6;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.page-wrapper {
+  width: 100%;
+  max-width: 520px;
+}
+
+.form-container {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.logo-accent {
+  color: var(--primary);
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Fields & Inputs */
+.field-group {
+  margin-bottom: 1.35rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #D1D5DB;
+  margin-bottom: 0.45rem;
+}
+
+.toggle-password {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.toggle-password:hover {
+  text-decoration: underline;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  padding-right: 2.5rem;
+  background-color: var(--bg-main);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.status-icon {
+  position: absolute;
+  right: 1rem;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  pointer-events: none;
+}
+
+/* Error and Valid states */
+.field-group.invalid input {
+  border-color: var(--danger);
+  background-color: rgba(239, 68, 68, 0.04);
+}
+
+.field-group.invalid input:focus {
+  box-shadow: 0 0 0 3px var(--danger-glow);
+}
+
+.field-group.invalid .status-icon {
+  color: var(--danger);
+}
+
+.field-group.invalid .status-icon::before {
+  content: "✕";
+}
+
+.field-group.valid input {
+  border-color: var(--primary);
+}
+
+.field-group.valid .status-icon {
+  color: var(--primary);
+}
+
+.field-group.valid .status-icon::before {
+  content: "✓";
+}
+
+.error-msg {
+  color: var(--danger);
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  min-height: 1.2rem;
+  visibility: hidden;
+}
+
+.field-group.invalid .error-msg {
+  visibility: visible;
+}
+
+/* Password Strength Meter */
+.strength-meter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.meter-bar {
+  flex-grow: 1;
+  height: 5px;
+  background-color: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.strength-text {
+  font-size: 0.75rem;
+  color: var(--text-sub);
+  font-weight: 600;
+  min-width: 90px;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 0.95rem;
+  background-color: var(--primary);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: #03140C;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 15px var(--primary-glow);
+  transition: var(--transition);
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-hover);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Success Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 999;
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.modal-icon {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(16, 185, 129, 0.15);
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  color: var(--primary);
+  font-size: 1.75rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem auto;
+}
+
+.modal-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.modal-desc {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-btn {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--primary);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: #03140C;
+  font-weight: 700;
+  cursor: pointer;
+}

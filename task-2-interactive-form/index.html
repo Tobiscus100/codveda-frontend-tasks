@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Secure Developer Registration Portal with client-side real-time validation." />
+  <title>ApexPortal | Developer Account Registration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="page-wrapper">
+    <div class="form-container">
+      
+      <header class="form-header">
+        <div class="logo">
+          <span class="logo-accent">Apex</span>Portal
+        </div>
+        <h1 class="title">Create an Account</h1>
+        <p class="subtitle">Join our digital engineering network. Fill in your verified details below.</p>
+      </header>
+
+      <form id="registration-form" novalidate>
+        
+        <!-- Full Name -->
+        <div class="field-group" id="group-name">
+          <label for="fullName">Full Name</label>
+          <div class="input-wrapper">
+            <input 
+              type="text" 
+              id="fullName" 
+              name="fullName" 
+              placeholder="e.g. Alex Morgan" 
+              autocomplete="name"
+              aria-describedby="error-name"
+            />
+            <span class="status-icon" aria-hidden="true"></span>
+          </div>
+          <p class="error-msg" id="error-name" aria-live="polite"></p>
+        </div>
+
+        <!-- Work Email -->
+        <div class="field-group" id="group-email">
+          <label for="email">Work Email</label>
+          <div class="input-wrapper">
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="alex@company.com" 
+              autocomplete="email"
+              aria-describedby="error-email"
+            />
+            <span class="status-icon" aria-hidden="true"></span>
+          </div>
+          <p class="error-msg" id="error-email" aria-live="polite"></p>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="field-group" id="group-phone">
+          <label for="phone">Phone Number</label>
+          <div class="input-wrapper">
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              placeholder="+234 801 234 5678" 
+              autocomplete="tel"
+              aria-describedby="error-phone"
+            />
+            <span class="status-icon" aria-hidden="true"></span>
+          </div>
+          <p class="error-msg" id="error-phone" aria-live="polite"></p>
+        </div>
+
+        <!-- Password -->
+        <div class="field-group" id="group-password">
+          <div class="label-row">
+            <label for="password">Password</label>
+            <button type="button" class="toggle-password" id="toggle-password" aria-label="Toggle password visibility">
+              Show
+            </button>
+          </div>
+          <div class="input-wrapper">
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              placeholder="Minimum 8 characters" 
+              autocomplete="new-password"
+              aria-describedby="error-password"
+            />
+            <span class="status-icon" aria-hidden="true"></span>
+          </div>
+          
+          <!-- Password Strength Indicator -->
+          <div class="strength-meter" id="strength-meter" aria-hidden="true">
+            <div class="meter-bar"><div class="meter-fill" id="meter-fill"></div></div>
+            <span class="strength-text" id="strength-text">Strength: None</span>
+          </div>
+          
+          <p class="error-msg" id="error-password" aria-live="polite"></p>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="field-group" id="group-confirm-password">
+          <label for="confirmPassword">Confirm Password</label>
+          <div class="input-wrapper">
+            <input 
+              type="password" 
+              id="confirmPassword" 
+              name="confirmPassword" 
+              placeholder="Re-enter your password" 
+              autocomplete="new-password"
+              aria-describedby="error-confirm-password"
+            />
+            <span class="status-icon" aria-hidden="true"></span>
+          </div>
+          <p class="error-msg" id="error-confirm-password" aria-live="polite"></p>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">
+          <span class="btn-text">Register Account</span>
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Success Notification Modal -->
+  <div class="modal-overlay" id="success-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-card">
+      <div class="modal-icon">✓</div>
+      <h2 class="modal-title" id="modal-title">Registration Successful!</h2>
+      <p class="modal-desc" id="modal-desc">Your developer account has been validated and created successfully.</p>
+      <button type="button" class="modal-btn" id="close-modal-btn">Dismiss</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
