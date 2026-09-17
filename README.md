@@ -7,3 +7,15 @@ Key Technical Highlights:
 - Mobile-First & Fluid Layout: Engineered with CSS Grid and Flexbox for fluid responsiveness across mobile (<768px), tablet, and desktop viewports.
 - Interactive Vanilla JavaScript: Features an accessible slide-out mobile navigation drawer, an active scroll-spy navigation highlighter, dynamic header background blur on scroll, and a smooth scroll-to-top button.
 - Zero-Dependency Vector Assets: Built with inline SVG icons and a custom mock terminal card for fast load times and clean cross-device rendering.
+
+- ---
+
+### Level 1 - Task 2: Interactive Developer Registration Form (ApexPortal)
+
+A validated developer registration portal built with semantic HTML5, modern CSS3, and vanilla JavaScript.
+
+**Key Technical Highlights:**
+- **Client-Side Real-Time Validation:** Dynamic regex validation evaluating required fields, RFC-compliant email formats, and international telephone numbers without full page reloads.
+- **Dynamic Password Strength Algorithm:** 4-tier complexity scoring engine checking character length ($\ge 8$), uppercase letters, numeric digits, and special characters, complete with an animated visual meter bar.
+- **Form State & UX Enhancements:** Password visibility toggle (Show/Hide), dynamic focus rings, inline error indicators, and accessible status iconography.
+- **Accessible Confirmation Workflow:** Submission event intercept with custom modal overlay confirmations and ARIA live region (`aria-live="polite"`) announcements.
