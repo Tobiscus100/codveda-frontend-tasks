@@ -1,0 +1,325 @@
+:root {
+  --bg-main: #0B0F19;
+  --bg-card: #111827;
+  --bg-sub: #1F2937;
+  --text-main: #F9FAFB;
+  --text-muted: #9CA3AF;
+  --text-sub: #6B7280;
+  --primary: #10B981;
+  --primary-hover: #059669;
+  --primary-glow: rgba(16, 185, 129, 0.25);
+  --danger: #EF4444;
+  --danger-hover: #DC2626;
+  --border: #1F2937;
+  --border-light: #374151;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 480px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.logo-accent {
+  color: var(--primary);
+}
+
+.app-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+}
+
+.app-subtitle {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.counter-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.counter-display-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.75rem;
+}
+
+.badge-status {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary);
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.counter-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 5.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-main);
+  transition: transform 0.15s ease, color 0.2s ease;
+  user-select: none;
+}
+
+.counter-value.pulse-up {
+  color: var(--primary);
+  transform: scale(1.08);
+}
+
+.counter-value.pulse-down {
+  color: #60A5FA;
+  transform: scale(0.94);
+}
+
+.counter-value.shake-floor {
+  color: var(--danger);
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.counter-step-label {
+  color: var(--text-sub);
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.counter-step-label strong {
+  color: var(--primary);
+}
+
+.step-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.5rem;
+  border-radius: 999px;
+  margin-bottom: 2rem;
+}
+
+.selector-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-sub);
+  padding-left: 0.5rem;
+}
+
+.step-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.step-btn:hover {
+  color: var(--text-main);
+}
+
+.step-btn.active {
+  background-color: var(--primary);
+  color: #03140C;
+}
+
+.button-group {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.85rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: var(--transition);
+}
+
+.btn-decrement {
+  background-color: rgba(96, 165, 250, 0.1);
+  border-color: rgba(96, 165, 250, 0.3);
+  color: #93C5FD;
+}
+
+.btn-decrement:hover:not(:disabled) {
+  background-color: #3B82F6;
+  color: #FFFFFF;
+  border-color: #3B82F6;
+  transform: translateY(-2px);
+}
+
+.btn-increment {
+  background-color: var(--primary);
+  color: #03140C;
+  box-shadow: 0 4px 15px var(--primary-glow);
+}
+
+.btn-increment:hover {
+  background-color: var(--primary-hover);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.btn-reset {
+  background-color: transparent;
+  border-color: var(--border-light);
+  color: var(--text-muted);
+}
+
+.btn-reset:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.shortcuts-note {
+  font-size: 0.75rem;
+  color: var(--text-sub);
+}
+
+kbd {
+  display: inline-block;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  font-family: monospace;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.log-section {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+}
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.log-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn-clear-log {
+  background: none;
+  border: none;
+  color: var(--text-sub);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-clear-log:hover {
+  color: var(--danger);
+}
+
+.log-list {
+  list-style: none;
+  max-height: 140px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.log-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.6rem;
+  background-color: var(--bg-main);
+  border-radius: var(--radius-sm);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.log-action-inc { color: var(--primary); }
+.log-action-dec { color: #60A5FA; }
+.log-action-reset { color: var(--danger); }
+.log-time { color: var(--text-sub); font-size: 0.7rem; }
+.log-empty { color: var(--text-sub); font-size: 0.8rem; text-align: center; padding: 0.5rem 0; }
