@@ -19,3 +19,15 @@ A validated developer registration portal built with semantic HTML5, modern CSS3
 - **Dynamic Password Strength Algorithm:** 4-tier complexity scoring engine checking character length ($\ge 8$), uppercase letters, numeric digits, and special characters, complete with an animated visual meter bar.
 - **Form State & UX Enhancements:** Password visibility toggle (Show/Hide), dynamic focus rings, inline error indicators, and accessible status iconography.
 - **Accessible Confirmation Workflow:** Submission event intercept with custom modal overlay confirmations and ARIA live region (`aria-live="polite"`) announcements.
+
+
+---
+
+### Level 2 - Task 2: REST API User Explorer (DevFinder)
+
+A client-side developer profile explorer consuming the official public GitHub v3 REST API.
+
+**Key Technical Highlights:**
+- **Dynamic Asynchronous Fetching:** Connects to GitHub's public user endpoints using modern `async/await` and robust HTTP response parsing.
+- **Stateful UI Lifecycles:** Features dedicated CSS shimmer skeleton loaders during active network requests, dynamic error handling banners, and fully populated profile views.
+- **Editorial Design System:** Warm paper/terracotta aesthetic styled with custom tokens, responsive CSS Grid layout, and accessible iconography.
