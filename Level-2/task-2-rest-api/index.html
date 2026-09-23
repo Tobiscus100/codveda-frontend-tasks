@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GitHub Developer Search powered by the public GitHub REST API." />
+  <title>DevFinder | REST API Integration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="app-shell">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo">
+        <span class="logo-accent">Dev</span>Finder
+      </div>
+      <p class="tagline">REST API Explorer consuming the public GitHub v3 endpoints</p>
+    </header>
+
+    <!-- Search Section -->
+    <form class="search-bar" id="search-form" novalidate>
+      <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input 
+        type="text" 
+        id="search-input" 
+        placeholder="Enter GitHub username (e.g. torvalds, gaearon)..." 
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button type="submit" class="search-btn" id="search-btn">Search</button>
+    </form>
+
+    <!-- Loading State Skeleton -->
+    <div class="card skeleton-card" id="skeleton-loader" hidden>
+      <div class="skeleton-header">
+        <div class="skeleton avatar-box"></div>
+        <div class="skeleton-text-group">
+          <div class="skeleton bar-title"></div>
+          <div class="skeleton bar-handle"></div>
+          <div class="skeleton bar-bio"></div>
+        </div>
+      </div>
+      <div class="skeleton-stats">
+        <div class="skeleton bar-stat"></div>
+        <div class="skeleton bar-stat"></div>
+        <div class="skeleton bar-stat"></div>
+      </div>
+    </div>
+
+    <!-- Error Alert Banner -->
+    <div class="error-banner" id="error-banner" hidden>
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      <span id="error-message">User not found. Please try another handle.</span>
+    </div>
+
+    <!-- Profile Display Card -->
+    <article class="card profile-card" id="profile-card">
+      <div class="profile-top">
+        <img src="" alt="" class="profile-avatar" id="avatar" />
+        <div class="profile-meta">
+          <h2 class="profile-name" id="name">Name</h2>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="profile-handle" id="handle">@username</a>
+          <p class="profile-joined" id="joined-date">Joined --</p>
+        </div>
+      </div>
+
+      <p class="profile-bio" id="bio">Bio description will appear here.</p>
+
+      <div class="stats-panel">
+        <div class="stat-block">
+          <span class="stat-label">Repos</span>
+          <strong class="stat-val" id="repos">0</strong>
+        </div>
+        <div class="stat-block">
+          <span class="stat-label">Followers</span>
+          <strong class="stat-val" id="followers">0</strong>
+        </div>
+        <div class="stat-block">
+          <span class="stat-label">Following</span>
+          <strong class="stat-val" id="following">0</strong>
+        </div>
+      </div>
+
+      <div class="meta-grid">
+        <div class="meta-item" id="item-location">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span id="location">Not Available</span>
+        </div>
+        <div class="meta-item" id="item-company">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          <span id="company">Not Available</span>
+        </div>
+        <div class="meta-item" id="item-blog">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+          <a href="#" target="_blank" rel="noopener noreferrer" id="blog">Not Available</a>
+        </div>
+        <div class="meta-item" id="item-twitter">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <span id="twitter">Not Available</span>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
