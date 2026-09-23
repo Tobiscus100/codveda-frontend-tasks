@@ -31,3 +31,19 @@ A client-side developer profile explorer consuming the official public GitHub v3
 - **Dynamic Asynchronous Fetching:** Connects to GitHub's public user endpoints using modern `async/await` and robust HTTP response parsing.
 - **Stateful UI Lifecycles:** Features dedicated CSS shimmer skeleton loaders during active network requests, dynamic error handling banners, and fully populated profile views.
 - **Editorial Design System:** Warm paper/terracotta aesthetic styled with custom tokens, responsive CSS Grid layout, and accessible iconography.
+
+---
+
+## Level 2 (Intermediate)
+
+### Task 2: REST API User Explorer (DevFinder)
+A lightweight developer profile search client consuming the official public GitHub v3 REST API.
+- **Asynchronous Data Layer:** Built using `fetch()` and `async/await` with dedicated error handling for invalid handles (404) and rate limits (403).
+- **Interactive UI Lifecycles:** Features shimmer skeleton loaders during active network calls, dynamic error alert banners, and populated user metrics.
+- **Design System:** Warm editorial paper/terracotta aesthetic with custom layout tokens and responsive CSS Grid.
+
+### Task 3: Modern SaaS Metrics Dashboard (PulseTrack)
+An analytics dashboard interface constructed entirely with the Tailwind CSS utility framework.
+- **Utility-First Architecture:** Leverages Tailwind arbitrary values, responsive grid breakpoints, and custom extended theme tokens (`brand`, `lavender`, `surface`).
+- **Dynamic Data Filtering:** Client-side JavaScript filtering on recent transaction tables and interactive timeline buttons.
+- **Component Design:** Stat cards with trend indicators, custom sidebar navigation, status badges, and table layouts.
