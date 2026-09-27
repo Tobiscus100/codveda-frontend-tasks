@@ -47,3 +47,16 @@ An analytics dashboard interface constructed entirely with the Tailwind CSS util
 - **Utility-First Architecture:** Leverages Tailwind arbitrary values, responsive grid breakpoints, and custom extended theme tokens (`brand`, `lavender`, `surface`).
 - **Dynamic Data Filtering:** Client-side JavaScript filtering on recent transaction tables and interactive timeline buttons.
 - **Component Design:** Stat cards with trend indicators, custom sidebar navigation, status badges, and table layouts.
+
+## Level 3 (Advanced)
+- Task 1: Accessible Component Library (NexusUI)
+A set of production-ready, accessible UI primitives crafted with pure vanilla JavaScript and strict WAI-ARIA conformance.
+- **Segmented Tabs:** ARIA tablist/tabpanel architecture with arrow-key keyboard navigation and roving tabindex.
+- **Collapsible Accordion:** Single-expansion disclosure patterns with dynamic `aria-expanded` state synchronization.
+- **Focus-Trapped Modal:** Modal dialog with active focus trapping, escape key dismiss, backdrop dismissal, and focus restoration.
+- **Design System:** Sage Mist & Sandstone Slate palette.
+- ### Task 2: Frontend Performance Optimization (OptiMedia)
+A media-focused showcase demonstrating modern web performance engineering techniques.
+- **Modern Asset Delivery:** Responsive `<picture>` elements delivering modern WebP formats, multi-density `srcset`, and native `loading="lazy"`.
+- **Zero CLS Architecture:** Explicit aspect-ratio locks and preconnect resource hints preventing Cumulative Layout Shift.
+- **Live Telemetry HUD:** Real-time Core Web Vitals instrumentation measuring DOM Ready, FCP, LCP, and CLS via native `PerformanceObserver` APIs.
