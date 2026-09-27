@@ -23,17 +23,6 @@ A validated developer registration portal built with semantic HTML5, modern CSS3
 
 ---
 
-### Level 2 - Task 2: REST API User Explorer (DevFinder)
-
-A client-side developer profile explorer consuming the official public GitHub v3 REST API.
-
-**Key Technical Highlights:**
-- **Dynamic Asynchronous Fetching:** Connects to GitHub's public user endpoints using modern `async/await` and robust HTTP response parsing.
-- **Stateful UI Lifecycles:** Features dedicated CSS shimmer skeleton loaders during active network requests, dynamic error handling banners, and fully populated profile views.
-- **Editorial Design System:** Warm paper/terracotta aesthetic styled with custom tokens, responsive CSS Grid layout, and accessible iconography.
-
----
-
 ## Level 2 (Intermediate)
 
 ### Task 2: REST API User Explorer (DevFinder)
