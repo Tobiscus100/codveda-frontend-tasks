@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="High-performance media architecture showcasing lazy loading, modern formats, responsive art direction, and Web Vitals telemetry." />
+  <title>OptiMedia | Frontend Performance Optimization</title>
+
+  <!-- Performance Optimization: Resource Preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+
+  <!-- Optimized Web Font Delivery with font-display: swap -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating Real-Time Core Web Vitals Monitor -->
+  <aside class="vitals-hud" id="vitals-hud" aria-label="Performance telemetry">
+    <div class="vitals-header">
+      <span class="vitals-dot"></span>
+      <span class="vitals-title">Core Web Vitals HUD</span>
+    </div>
+    <div class="vitals-grid">
+      <div class="metric-box">
+        <span class="metric-label">DOM Ready</span>
+        <strong class="metric-value" id="val-dom">-- ms</strong>
+      </div>
+      <div class="metric-box">
+        <span class="metric-label">FCP</span>
+        <strong class="metric-value" id="val-fcp">-- ms</strong>
+      </div>
+      <div class="metric-box">
+        <span class="metric-label">Est. LCP</span>
+        <strong class="metric-value" id="val-lcp">-- ms</strong>
+      </div>
+      <div class="metric-box">
+        <span class="metric-label">CLS Shift</span>
+        <strong class="metric-value" id="val-cls">0.000</strong>
+      </div>
+    </div>
+  </aside>
+
+  <main class="page-container">
+    
+    <!-- Hero / Intro -->
+    <header class="page-header">
+      
+      <h1 class="page-title"><span class="brand-accent">Opti</span>Media Gallery</h1>
+      <p class="page-subtitle">A high-performance media pipeline engineered to minimize layout shifts, optimize network byte transfer, and leverage native browser scheduling.</p>
+
+      <!-- Optimization Strategy Summary Pills -->
+      <div class="strategy-pills">
+        <span class="pill">&check; Native Lazy Loading</span>
+        <span class="pill">&check; WebP / AVIF Format Delivery</span>
+        <span class="pill">&check; Fixed Aspect Ratio (Zero CLS)</span>
+        <span class="pill">&check; Async Image Decoding</span>
+        <span class="pill">&check; Content-Visibility: Auto</span>
+      </div>
+    </header>
+
+    <!-- Optimized Gallery Grid -->
+    <section class="gallery-grid" aria-label="Optimized Architecture Portfolio">
+
+      <!-- Item 1: High-Priority LCP Candidate (Eager Loaded) -->
+      <article class="media-card priority-card">
+        <div class="img-wrapper">
+          <picture>
+            <source 
+              type="image/webp" 
+              srcset="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80 600w,
+                      https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80 1000w"
+              sizes="(max-width: 640px) 100vw, 50vw"
+            />
+            <img 
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" 
+              alt="Contemporary architectural facade"
+              width="800"
+              height="500"
+              fetchpriority="high"
+              decoding="sync"
+              class="media-img"
+            />
+          </picture>
+          <span class="img-tag tag-priority">High Priority &bull; Above Fold</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category">Architecture</span>
+            <span class="specs">Format: WebP &bull; High Fetch Priority</span>
+          </div>
+          <h2 class="card-title">Nordic Minimalist Pavilion</h2>
+          <p class="card-desc">Designed with priority fetching (`fetchpriority="high"`) and synchronous decoding to optimize Largest Contentful Paint (LCP).</p>
+        </div>
+      </article>
+
+      <!-- Item 2: Lazy Loaded -->
+      <article class="media-card">
+        <div class="img-wrapper">
+          <picture>
+            <source 
+              type="image/webp" 
+              srcset="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=75 600w,
+                      https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=75 1000w"
+              sizes="(max-width: 640px) 100vw, 50vw"
+            />
+            <img 
+              src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=75" 
+              alt="Interior room with neutral decor"
+              width="800"
+              height="500"
+              loading="lazy"
+              decoding="async"
+              class="media-img"
+            />
+          </picture>
+          <span class="img-tag">Native Lazy</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category">Interior</span>
+            <span class="specs">Format: WebP &bull; `loading="lazy"`</span>
+          </div>
+          <h2 class="card-title">Sanctuary Light Studio</h2>
+          <p class="card-desc">Employs native browser lazy-loading to defer off-screen network requests until the element enters the viewport threshold.</p>
+        </div>
+      </article>
+
+      <!-- Item 3: Lazy Loaded -->
+      <article class="media-card">
+        <div class="img-wrapper">
+          <picture>
+            <source 
+              type="image/webp" 
+              srcset="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=75 600w,
+                      https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=75 1000w"
+              sizes="(max-width: 640px) 100vw, 50vw"
+            />
+            <img 
+              src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=75" 
+              alt="Luxury modern villa exterior"
+              width="800"
+              height="500"
+              loading="lazy"
+              decoding="async"
+              class="media-img"
+            />
+          </picture>
+          <span class="img-tag">Native Lazy</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category">Residential</span>
+            <span class="specs">Format: WebP &bull; `loading="lazy"`</span>
+          </div>
+          <h2 class="card-title">Monolithic Glass Villa</h2>
+          <p class="card-desc">Explicit `width` and `height` attributes coupled with CSS `aspect-ratio` prevent Cumulative Layout Shifts during asset load.</p>
+        </div>
+      </article>
+
+      <!-- Item 4: Lazy Loaded -->
+      <article class="media-card">
+        <div class="img-wrapper">
+          <picture>
+            <source 
+              type="image/webp" 
+              srcset="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=75 600w,
+                      https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=75 1000w"
+              sizes="(max-width: 640px) 100vw, 50vw"
+            />
+            <img 
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=75" 
+              alt="Skyscraper geometric glass patterns"
+              width="800"
+              height="500"
+              loading="lazy"
+              decoding="async"
+              class="media-img"
+            />
+          </picture>
+          <span class="img-tag">Native Lazy</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category">Urban</span>
+            <span class="specs">Format: WebP &bull; `decoding="async"`</span>
+          </div>
+          <h2 class="card-title">Apex Corporate Tower</h2>
+          <p class="card-desc">Asynchronous image decoding (`decoding="async"`) allows image rasterization to take place off the main thread, keeping scroll smooth.</p>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

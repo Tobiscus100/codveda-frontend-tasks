@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NexusUI: Accessible, zero-dependency custom component library featuring Tabs, Accordions, and Modal Dialogs." />
+  <title>NexusUI | Custom Component Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="page-container">
+    <!-- Header -->
+    <header class="page-header">
+      <h1 class="page-title"><span class="brand-accent">Nexus</span>UI Component Lab</h1>
+      <p class="page-subtitle">Production-ready, accessible, framework-free UI primitives engineered with strict WAI-ARIA conformance and keyboard lifecycles.</p>
+    </header>
+
+    <div class="components-grid">
+
+      <!-- Component 1: Accessible Tabs -->
+      <section class="component-card">
+        <div class="card-header">
+          <h2 class="component-title">1. Segmented Tabs</h2>
+          <span class="tag">ARIA Tabs Pattern</span>
+        </div>
+        <p class="component-desc">Keyboard navigable tab list. Use <kbd>&larr;</kbd> and <kbd>&rarr;</kbd> keys to cycle tabs when focused.</p>
+
+        <div class="tabs-widget" data-nexus-tabs>
+          <div role="tablist" aria-label="Framework integrations" class="tab-list">
+            <button role="tab" aria-selected="true" aria-controls="panel-react" id="tab-react" class="tab-btn active" tabindex="0">
+              React
+            </button>
+            <button role="tab" aria-selected="false" aria-controls="panel-vue" id="tab-vue" class="tab-btn" tabindex="-1">
+              Vue.js
+            </button>
+            <button role="tab" aria-selected="false" aria-controls="panel-vanilla" id="tab-vanilla" class="tab-btn" tabindex="-1">
+              Vanilla JS
+            </button>
+          </div>
+
+          <div role="tabpanel" id="panel-react" aria-labelledby="tab-react" class="tab-panel active">
+            <h3 class="panel-heading">React Ecosystem</h3>
+            <p>Components utilize modern functional component patterns, internal hooks for state machines, and memoized callbacks for minimal DOM churn.</p>
+          </div>
+
+          <div role="tabpanel" id="panel-vue" aria-labelledby="tab-vue" class="tab-panel" hidden>
+            <h3 class="panel-heading">Vue.js Composition</h3>
+            <p>Utilizes reactive primitives via the Composition API, explicit `defineProps`, and template slots for dynamic content projection.</p>
+          </div>
+
+          <div role="tabpanel" id="panel-vanilla" aria-labelledby="tab-vanilla" class="tab-panel" hidden>
+            <h3 class="panel-heading">Zero-Dependency Core</h3>
+            <p>Direct browser manipulation utilizing native DOM APIs, mutation observers, and delegated event listeners for peak runtime speed.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Component 2: Accordion -->
+      <section class="component-card">
+        <div class="card-header">
+          <h2 class="component-title">2. Collapsible Accordion</h2>
+          <span class="tag">Accessible Disclosure</span>
+        </div>
+        <p class="component-desc">Smooth height transitions with toggled aria-expanded attributes and isolated active state handling.</p>
+
+        <div class="accordion-group" data-nexus-accordion>
+          <div class="accordion-item open">
+            <button class="accordion-trigger" aria-expanded="true" aria-controls="acc-content-1" id="acc-header-1">
+              <span>What makes these components accessible?</span>
+              <svg class="chevron-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-body" id="acc-content-1" role="region" aria-labelledby="acc-header-1">
+              <div class="accordion-content">
+                Every primitive incorporates appropriate ARIA roles, tabindex coordination for active elements, live region updates, and predictable keyboard shortcuts.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-content-2" id="acc-header-2">
+              <span>Can I customize token styling easily?</span>
+              <svg class="chevron-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-body" id="acc-content-2" role="region" aria-labelledby="acc-header-2" hidden>
+              <div class="accordion-content">
+                Yes. All geometry, transitions, and palettes are governed by central CSS Custom Properties (`:root`), enabling one-line global re-theming.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-content-3" id="acc-header-3">
+              <span>Is external runtime bundling required?</span>
+              <svg class="chevron-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-body" id="acc-content-3" role="region" aria-labelledby="acc-header-3" hidden>
+              <div class="accordion-content">
+                No external libraries or build tools are necessary. It executes directly in any evergreen browser with zero configuration.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Component 3: Accessible Modal -->
+      <section class="component-card">
+        <div class="card-header">
+          <h2 class="component-title">3. Focus-Trapped Modal</h2>
+          <span class="tag">Dialog Primitive</span>
+        </div>
+        <p class="component-desc">Traps keyboard focus inside the overlay dialog, disables background scroll, and closes on <kbd>Esc</kbd> or backdrop click.</p>
+
+        <div class="modal-trigger-wrapper">
+          <button class="btn btn-primary" id="open-modal-btn">
+            Open Interactive Modal
+          </button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Modal Overlay Dialog Component -->
+  <div class="modal-overlay" id="nexus-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc" hidden>
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-surface" role="document">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Component Confirmation</h3>
+        <button class="modal-close-btn" id="close-modal-icon" aria-label="Close dialog">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="modal-desc">This dialog is isolated from the main DOM tree. Try pressing <kbd>Tab</kbd> to inspect the looping focus trap, or press <kbd>Escape</kbd> to dismiss.</p>
+        <div class="modal-form-sample">
+          <label for="modal-input" class="sample-label">Deployment Tag</label>
+          <input type="text" id="modal-input" class="sample-input" value="v1.0.4-rc3" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" id="close-modal-cancel">Cancel</button>
+        <button type="button" class="btn btn-primary" id="close-modal-confirm">Confirm Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
